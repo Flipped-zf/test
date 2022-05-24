@@ -102,15 +102,22 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "HelloWorld",
-  props: {
-    msg: String,
-  },
-});
+<script lang="ts" setup>
+import { defineProps } from 'vue'
+defineProps<{
+  msg: string
+}>()
+interface person {
+  name: string
+  age?: number
+  fun: () => string
+}
+const xiaoming: person = {
+  name: 'Xiaoming',
+  age: 10,
+  fun: (): string => 'hello',
+}
+console.log(xiaoming)
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
